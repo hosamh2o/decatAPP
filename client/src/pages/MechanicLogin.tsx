@@ -1,7 +1,7 @@
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { APP_LOGO, APP_TITLE, getLoginUrl } from "@/const";
+import { APP_LOGO, APP_TITLE } from "@/const";
 import { useLocation } from "wouter";
 import { Loader2, Wrench, CheckCircle, Clock, FileText, Bell } from "lucide-react";
 
@@ -143,7 +143,7 @@ export default function MechanicLogin() {
                   {/* Login Button */}
                   <Button
                     className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-6 text-lg"
-                    onClick={() => window.location.href = getLoginUrl()}
+                    onClick={() => setLocation("/mechanic/login")}
                   >
                     <Wrench className="w-5 h-5 mr-2" />
                     Se Connecter en tant que Mécanicien
