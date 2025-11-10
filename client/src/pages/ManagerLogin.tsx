@@ -1,7 +1,7 @@
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { APP_LOGO, APP_TITLE, getLoginUrl } from "@/const";
+import { APP_LOGO, APP_TITLE } from "@/const";
 import { useLocation } from "wouter";
 import { Loader2, Users, TrendingUp, Zap, BarChart3, Shield } from "lucide-react";
 
@@ -143,7 +143,7 @@ export default function ManagerLogin() {
                   {/* Login Button */}
                   <Button
                     className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold py-6 text-lg"
-                    onClick={() => window.location.href = getLoginUrl()}
+                    onClick={() => setLocation("/manager/login")}
                   >
                     <Users className="w-5 h-5 mr-2" />
                     Se Connecter en tant que Gestionnaire
