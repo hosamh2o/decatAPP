@@ -1,7 +1,7 @@
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { APP_LOGO, APP_TITLE, getLoginUrl } from "@/const";
+import { APP_LOGO, APP_TITLE } from "@/const";
 import { useLocation } from "wouter";
 import { Loader2, Wrench, Users } from "lucide-react";
 
@@ -30,8 +30,6 @@ export default function Login() {
       return null;
     }
   }
-
-  const loginUrl = getLoginUrl();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-50 to-blue-50">
@@ -83,7 +81,7 @@ export default function Login() {
                 </div>
                 <Button
                   className="w-full bg-cyan-500 hover:bg-cyan-600"
-                  onClick={() => window.location.href = loginUrl}
+                  onClick={() => setLocation("/manager/login")}
                 >
                   Se connecter
                 </Button>
@@ -113,7 +111,7 @@ export default function Login() {
                 </div>
                 <Button
                   className="w-full bg-orange-500 hover:bg-orange-600"
-                  onClick={() => window.location.href = loginUrl}
+                  onClick={() => setLocation("/mechanic/login")}
                 >
                   Se connecter
                 </Button>
