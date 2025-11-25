@@ -20,7 +20,22 @@ export async function setupVite(app: Express, server: Server) {
     appType: "custom",
   });
 
+  // Helpful dev log to confirm Vite middleware is active when running the server
+  console.log("Vite dev server: middleware active (development mode)");
+
   app.use(vite.middlewares);
+  // In development, relax Content-Security-Policy to allow Vite's dev tooling (eval/HMR).
+  // Some browsers will block Vite's eval-based dev code when a strict CSP is present,
+  // which prevents client-side scripts (including event handlers) from running.
+  app.use((req, res, next) => {
+    if (process.env.NODE_ENV === "development") {
+      res.setHeader(
+        "Content-Security-Policy",
+        "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:; connect-src *; img-src * data:; style-src 'unsafe-inline' *; font-src *;"
+      );
+    }
+    next();
+  });
   app.use("*", async (req, res, next) => {
     const url = req.originalUrl;
 

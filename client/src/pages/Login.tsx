@@ -1,7 +1,7 @@
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { APP_LOGO, APP_TITLE } from "@/const";
+import { APP_LOGO, APP_TITLE, getLoginUrl } from "@/const";
 import { useLocation } from "wouter";
 import { Loader2, Wrench, Users } from "lucide-react";
 
@@ -81,9 +81,16 @@ export default function Login() {
                 </div>
                 <Button
                   className="w-full bg-cyan-500 hover:bg-cyan-600"
-                  onClick={() => setLocation("/manager/login")}
+                  onClick={() => (window.location.href = getLoginUrl("signIn"))}
                 >
                   Se connecter
+                </Button>
+                <Button
+                  variant="outline"
+                  className="w-full mt-2"
+                  onClick={() => (window.location.href = getLoginUrl("signUp"))}
+                >
+                  Créer un compte
                 </Button>
               </CardContent>
             </Card>
@@ -111,9 +118,16 @@ export default function Login() {
                 </div>
                 <Button
                   className="w-full bg-orange-500 hover:bg-orange-600"
-                  onClick={() => setLocation("/mechanic/login")}
+                  onClick={() => (window.location.href = getLoginUrl("signIn"))}
                 >
                   Se connecter
+                </Button>
+                <Button
+                  variant="outline"
+                  className="w-full mt-2"
+                  onClick={() => (window.location.href = getLoginUrl("signUp"))}
+                >
+                  Créer un compte
                 </Button>
               </CardContent>
             </Card>

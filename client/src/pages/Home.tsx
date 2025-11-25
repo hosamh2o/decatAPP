@@ -95,7 +95,7 @@ export default function Home() {
                 </ul>
                 <Button
                   className="w-full bg-cyan-500 hover:bg-cyan-600"
-                  onClick={() => setLocation("/manager/login")}
+                  onClick={() => (window.location.href = getLoginUrl("signIn"))}
                 >
                   Se connecter en tant que Gestionnaire
                 </Button>
@@ -134,7 +134,7 @@ export default function Home() {
                 </ul>
                 <Button
                   className="w-full bg-cyan-500 hover:bg-cyan-600"
-                  onClick={() => setLocation("/mechanic/login")}
+                  onClick={() => (window.location.href = getLoginUrl("signIn"))}
                 >
                   Se connecter en tant que Mécanicien
                 </Button>
