@@ -4,7 +4,8 @@
       "src": "client/index.html",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "client/dist"
+        "distDir": "client/dist",
+        "buildCommand": "pnpm run build"
       }
     },
     {
